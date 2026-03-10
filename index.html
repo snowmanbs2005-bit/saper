@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Сапер</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Сапер</h1>
+        
+        <div class="controls">
+            <button id="btn-easy">Легко<br>(8x8)</button>
+            <button id="btn-med">Норм<br>(12x12)</button>
+            <button id="btn-hard">Сложно<br>(16x16)</button>
+        </div>
+
+        <div class="game-info">
+            <div class="info-block">
+                <span>💣</span> <span id="mines-count">10</span>
+            </div>
+            <div id="emoji-btn" class="emoji-btn">🙂</div>
+            <div class="info-block">
+                <span>⏱</span> <span id="timer">0</span>
+            </div>
+        </div>
+        
+        <button id="btn-restart-game" class="restart-btn">Начать заново</button>
+        
+        <div class="board-container">
+            <div id="board" class="board"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для результата -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="result-title"></h2>
+            <p id="result-message"></p>
+            <button id="btn-restart-modal">Играть снова</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
