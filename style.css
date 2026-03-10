@@ -213,11 +213,24 @@ h1 {
 }
 
 .modal-content p {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 25px;
     color: var(--hint-color);
 }
 
+.rules-text {
+    text-align: left;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.rules-text p {
+    color: var(--text-color);
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+#btn-start-game,
 #btn-restart-modal {
     width: 100%;
     padding: 14px;

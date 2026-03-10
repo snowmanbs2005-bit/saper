@@ -18,6 +18,9 @@ const resultTitle = document.getElementById('result-title');
 const resultMessage = document.getElementById('result-message');
 const btnRestartModal = document.getElementById('btn-restart-modal');
 
+const rulesModal = document.getElementById('rules-modal');
+const btnStartGame = document.getElementById('btn-start-game');
+
 // Adjust sizes slightly to fit better on standard mobile screens
 const LEVELS = {
     easy: { rows: 8, cols: 8, mines: 10, cell: 35 },
@@ -46,6 +49,7 @@ function initGame() {
     
     emojiBtn.innerText = '🙂';
     resultModal.classList.remove('show');
+    // Only remove rules modal if it's already hidden, otherwise we keep it on first load
     
     const config = LEVELS[currentLevel];
     minesCountEl.innerText = config.mines;
@@ -341,11 +345,22 @@ emojiBtn.addEventListener('click', initGame);
 btnRestartGame.addEventListener('click', initGame);
 btnRestartModal.addEventListener('click', initGame);
 
+btnStartGame.addEventListener('click', () => {
+    rulesModal.classList.remove('show');
+});
+
 function setLevel(level) {
     currentLevel = level;
     [btnEasy, btnMed, btnHard].forEach(b => b.classList.remove('active'));
     document.getElementById(`btn-${level}`).classList.add('active');
     initGame();
+}
+
+// Check if user has played before (optional localstorage check)
+const hasPlayed = localStorage.getItem('saper_played');
+if (!hasPlayed) {
+    rulesModal.classList.add('show');
+    localStorage.setItem('saper_played', 'true');
 }
 
 // Start
